@@ -5,17 +5,9 @@ import {
   MessageCircle, 
   Menu, 
   X, 
-  RefreshCw, 
-  Quote, 
-  Gift, 
   Palette, 
-  ExternalLink,
-  HelpCircle,
   Zap, 
-  Shield,
-  Frown,
   AlertCircle,
-  Info
 } from 'lucide-react';
 
 // =========================================================
