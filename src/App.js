@@ -50,11 +50,9 @@ const ASSETS = {
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
   const heroVideoRef = useRef(null);
 
   useEffect(() => {
-    setIsVisible(true);
     if (heroVideoRef.current) {
       heroVideoRef.current.play().catch(() => {});
     }
@@ -226,10 +224,10 @@ const App = () => {
       </header>
 
       {/* 作品集セクション */}
-      <section id="works" className="py-24 md:py-32 bg-white overflow-hidden text-center text-center">
+      <section id="works" className="py-24 md:py-32 bg-white overflow-hidden text-center">
         <div className="max-w-7xl mx-auto px-6 mb-20">
-          <h2 className="text-3xl md:text-5xl font-black text-slate-800 tracking-tighter mb-4 text-center text-center">想いをカタチにした作品たち</h2>
-          <p className="text-slate-500 font-bold italic text-center text-center">HP、LP、キャラクター…… 規則正しく、丁寧に仕上げます</p>
+          <h2 className="text-3xl md:text-5xl font-black text-slate-800 tracking-tighter mb-4 text-center">想いをカタチにした作品たち</h2>
+          <p className="text-slate-500 font-bold italic text-center">HP、LP、キャラクター…… 規則正しく、丁寧に仕上げます</p>
         </div>
 
         {/* 上段：16:10 ギャラリー（名前・リンクなし） */}
@@ -268,23 +266,23 @@ const App = () => {
       </section>
 
       {/* もやもやセクション */}
-      <section id="moya" className="py-24 md:py-32 bg-slate-50 px-4 md:px-6 relative overflow-hidden text-center text-center">
-        <div className="max-w-7xl mx-auto relative z-10 text-center">
+      <section id="moya" className="py-24 md:py-32 bg-slate-50 px-4 md:px-6 relative overflow-hidden text-center">
+        <div className="max-w-7xl mx-auto relative z-10">
           <h2 className="text-3xl md:text-5xl font-shuji font-black mb-20 inline-block bg-white px-8 py-4 border-4 border-slate-900 shadow-[8px_8px_0_0_rgba(0,0,0,1)] -rotate-1 text-center">
-            こんな“もやもや”はありませんか？
+            こんな"もやもや"はありませんか？
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-center text-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             {ASSETS.manga.map((_, index) => (
-              <div key={index} className="bg-white border-4 border-slate-900 relative aspect-[3/5] overflow-hidden shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:-translate-y-2 transition-all group rounded-xl text-center text-center">
+              <div key={index} className="bg-white border-4 border-slate-900 relative aspect-[3/5] overflow-hidden shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:-translate-y-2 transition-all group rounded-xl">
                  <MangaMedia index={index} fallbackIcon={AlertCircle} />
               </div>
             ))}
           </div>
           
           <div className="mt-20">
-             <div className="inline-block relative group text-center text-center">
-               <div className="absolute -inset-1 bg-[#E67E22] rounded-full blur-xl opacity-20 group-hover:opacity-40 animate-pulse transition-opacity text-center text-center"></div>
-               <div className="relative bg-[#E67E22] text-white font-shuji font-black text-base sm:text-lg md:text-3xl px-6 sm:px-12 py-4 sm:py-6 rounded-full shadow-2xl transform transition-transform group-hover:scale-105 active:scale-95 leading-tight overflow-hidden text-center text-center">
+             <div className="inline-block relative group">
+               <div className="absolute -inset-1 bg-[#E67E22] rounded-full blur-xl opacity-20 group-hover:opacity-40 animate-pulse transition-opacity"></div>
+               <div className="relative bg-[#E67E22] text-white font-shuji font-black text-base sm:text-lg md:text-3xl px-6 sm:px-12 py-4 sm:py-6 rounded-full shadow-2xl transform transition-transform group-hover:scale-105 active:scale-95 leading-tight overflow-hidden text-center">
                  <span className="whitespace-nowrap">そのもやもや、EGAO WORKSが</span>
                  <br className="md:hidden" />
                  <span className="whitespace-nowrap">すべて笑顔に変えます！</span>
@@ -295,21 +293,21 @@ const App = () => {
       </section>
 
       {/* プロフィールセクション */}
-      <section id="about" className="py-24 md:py-32 bg-slate-900 text-white overflow-hidden relative text-left">
-        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-orange-500/10 rounded-full blur-[80px] -mr-48 -mt-48 text-center text-center"></div>
-        <div className="max-w-5xl mx-auto px-6 relative z-10 text-center md:text-left text-center text-center">
-          <div className="flex flex-col md:flex-row gap-12 md:gap-16 items-center text-center text-center text-center">
-            <div className="w-40 h-40 md:w-52 md:h-52 bg-slate-800 rounded-[2.5rem] overflow-hidden border-4 border-slate-700 flex-shrink-0 shadow-2xl relative group text-center text-center">
-              <img src={ASSETS.about} alt="ITエンジニア" className="w-full h-full object-cover text-center text-center text-center" onError={(e) => { e.target.style.display = 'none'; e.target.parentNode.innerHTML = '<div class="text-6xl flex items-center justify-center h-full text-center text-center">👨‍💻</div>'; }} />
+      <section id="about" className="py-24 md:py-32 bg-slate-900 text-white overflow-hidden relative">
+        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-orange-500/10 rounded-full blur-[80px] -mr-48 -mt-48"></div>
+        <div className="max-w-5xl mx-auto px-6 relative z-10">
+          <div className="flex flex-col md:flex-row gap-12 md:gap-16 items-center">
+            <div className="w-40 h-40 md:w-52 md:h-52 bg-slate-800 rounded-[2.5rem] overflow-hidden border-4 border-slate-700 flex-shrink-0 shadow-2xl relative group">
+              <img src={ASSETS.about} alt="ITエンジニア" className="w-full h-full object-cover" onError={(e) => { e.target.style.display = 'none'; e.target.parentNode.innerHTML = '<div class="text-6xl flex items-center justify-center h-full">👨‍💻</div>'; }} />
             </div>
-            <div className="flex-1 text-left text-left text-left">
+            <div className="flex-1 text-center md:text-left">
               <h2 className="text-2xl md:text-4xl font-black mb-8 text-orange-400 leading-tight tracking-tighter">
                 現役エンジニアが、あなたの街の<br className="hidden md:block" />
                 「デジタル御用聞き」になった<span className="whitespace-nowrap">理由</span>
               </h2>
               <div className="space-y-6 text-slate-300 leading-relaxed text-base md:text-lg font-bold">
                 <p>「素晴らしいお店なのに、もったいない……」</p>
-                <p>エンジニアとして活動する中で、そんな場面に何度も出会ってきました。良いサービスはあるのに、デジタルの壁が立ちはだかって魅力が届いていない。<span className="text-white underline decoration-orange-500 decoration-4 underline-offset-4 font-black text-left text-left text-left">お店もお客様も笑顔にしたい</span>想いでEGAO WORKSを立ち上げました</p>
+                <p>エンジニアとして活動する中で、そんな場面に何度も出会ってきました。良いサービスはあるのに、デジタルの壁が立ちはだかって魅力が届いていない。<span className="text-white underline decoration-orange-500 decoration-4 underline-offset-4 font-black">お店もお客様も笑顔にしたい</span>想いでEGAO WORKSを立ち上げました</p>
               </div>
             </div>
           </div>
@@ -320,59 +318,59 @@ const App = () => {
       <section id="pricing" className="py-24 bg-orange-50 px-4 text-center">
         <div className="max-w-7xl mx-auto">
           <div className="mb-16 text-center">
-            <h2 className="text-3xl md:text-5xl font-black mb-6 text-orange-600 tracking-tighter text-center">安心の明朗会計プラン</h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto font-bold leading-relaxed text-center">
+            <h2 className="text-3xl md:text-5xl font-black mb-6 text-orange-600 tracking-tighter">安心の明朗会計プラン</h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto font-bold leading-relaxed">
               「ITのことはよくわからないから、高額な請求が怖い…」<br />
               そんな不安をなくすため、EGAO Worksはすべて定額・コミコミ価格です
             </p>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-16 text-center text-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-16">
             {pricingData.map((plan, index) => (
-              <div key={index} className={`relative bg-white rounded-[2.5rem] shadow-xl overflow-hidden border-2 flex flex-col ${plan.recommend ? 'border-orange-500 md:scale-105 z-10' : 'border-transparent'} p-6 md:p-8 text-center text-center`}>
+              <div key={index} className={`relative bg-white rounded-[2.5rem] shadow-xl overflow-hidden border-2 flex flex-col ${plan.recommend ? 'border-orange-500 md:scale-105 z-10' : 'border-transparent'} p-6 md:p-8 text-center`}>
                 {plan.recommend && (
-                  <div className="absolute top-0 right-0 bg-orange-500 text-white px-4 py-1 rounded-bl-xl text-xs font-black uppercase text-center text-center">一番人気！</div>
+                  <div className="absolute top-0 right-0 bg-orange-500 text-white px-4 py-1 rounded-bl-xl text-xs font-black uppercase">一番人気！</div>
                 )}
-                <h3 className="text-lg font-black mb-4 text-slate-800 text-center text-center">{plan.title}</h3>
+                <h3 className="text-lg font-black mb-4 text-slate-800">{plan.title}</h3>
                 <div className="flex items-baseline mb-6 justify-center">
-                  <span className="text-2xl md:text-3xl font-black text-slate-900 tracking-tighter text-center text-center text-center text-center">¥{plan.price}</span>
-                  {plan.unit ? <span className="text-slate-500 ml-1 text-xs font-bold text-center text-center text-center text-center">{plan.unit}</span> : <span className="text-slate-500 ml-1 text-xs font-bold text-center text-center text-center text-center text-center"> (税込)〜</span>}
+                  <span className="text-2xl md:text-3xl font-black text-slate-900 tracking-tighter">¥{plan.price}</span>
+                  {plan.unit ? <span className="text-slate-500 ml-1 text-xs font-bold">{plan.unit}</span> : <span className="text-slate-500 ml-1 text-xs font-bold"> (税込)〜</span>}
                 </div>
-                <p className="text-slate-600 text-[11px] mb-8 leading-relaxed font-bold text-center text-center">{plan.description}</p>
-                <ul className="space-y-4 mb-10 flex-1 text-left text-left">
+                <p className="text-slate-600 text-[11px] mb-8 leading-relaxed font-bold text-center">{plan.description}</p>
+                <ul className="space-y-4 mb-10 flex-1 text-left">
                   {plan.features.map((f, i) => (
                     <li key={i} className="flex items-start font-black text-slate-700 text-[11px] md:text-xs">
                       <Check className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" /> {f}
                     </li>
                   ))}
                 </ul>
-                <button onClick={() => window.open(uWordUrl, '_blank')} className={`w-full py-4 rounded-2xl font-black text-white shadow-lg transform transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2 text-sm ${plan.color} text-center text-center`}>
+                <button onClick={() => window.open(uWordUrl, '_blank')} className={`w-full py-4 rounded-2xl font-black text-white shadow-lg transform transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2 text-sm ${plan.color}`}>
                   <MousePointerClick size={16} /> 詳細を見る
                 </button>
               </div>
             ))}
           </div>
           
-          <div className="bg-white rounded-[2.5rem] shadow-lg p-8 md:p-12 border border-slate-100 mb-16 max-w-5xl mx-auto text-center">
+          <div className="bg-white rounded-[2.5rem] shadow-lg p-8 md:p-12 border border-slate-100 mb-16 max-w-5xl mx-auto">
             <div className="flex flex-col md:flex-row items-center justify-between gap-8">
               <div className="flex-1 text-center md:text-left">
-                <div className="inline-flex items-center gap-2 text-green-600 font-black mb-2 uppercase tracking-tighter text-center">
+                <div className="inline-flex items-center gap-2 text-green-600 font-black mb-2 uppercase tracking-tighter">
                   <Zap size={20} /> <span>まずは気軽に相談から！</span>
                 </div>
-                <h3 className="text-2xl font-black mb-4 text-left text-left text-left">{freeConsultation.title}</h3>
-                <p className="text-slate-600 mb-6 font-bold leading-relaxed text-left text-left text-left">
+                <h3 className="text-2xl font-black mb-4 text-left">{freeConsultation.title}</h3>
+                <p className="text-slate-600 mb-6 font-bold leading-relaxed text-left">
                   {freeConsultation.description}。どんなに小さな「困った」でも構いません。あなたのお店をデジタルで元気にするヒントを一緒に探しましょう
                 </p>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-3 justify-center md:justify-start">
                   {freeConsultation.features.map((f, i) => (
                     <span key={i} className="bg-green-50 text-green-700 px-4 py-1.5 rounded-full text-xs font-black tracking-tighter">#{f}</span>
                   ))}
                 </div>
               </div>
-              <div className="text-center bg-slate-50 p-8 rounded-3xl min-w-[240px] border-2 border-slate-100 text-center text-center text-center">
-                <div className="text-sm text-slate-500 mb-1 underline decoration-green-200 font-black text-center text-center text-center">初回相談はここから</div>
-                <div className="text-4xl font-black text-slate-800 mb-4 tracking-tighter text-center text-center text-center text-center">¥{freeConsultation.price}<span className="text-lg text-slate-500 font-bold text-center text-center text-center text-center">{freeConsultation.unit}</span></div>
-                <button onClick={() => window.open(lineUrl, '_blank')} className="w-full bg-[#4ADE80] text-white py-4 rounded-2xl font-black hover:bg-green-500 transition-colors shadow-lg flex items-center justify-center gap-2 text-center text-center">
+              <div className="text-center bg-slate-50 p-8 rounded-3xl min-w-[240px] border-2 border-slate-100">
+                <div className="text-sm text-slate-500 mb-1 underline decoration-green-200 font-black">初回相談はここから</div>
+                <div className="text-4xl font-black text-slate-800 mb-4 tracking-tighter">¥{freeConsultation.price}<span className="text-lg text-slate-500 font-bold">{freeConsultation.unit}</span></div>
+                <button onClick={() => window.open(lineUrl, '_blank')} className="w-full bg-[#4ADE80] text-white py-4 rounded-2xl font-black hover:bg-green-500 transition-colors shadow-lg flex items-center justify-center gap-2">
                   <MessageCircle size={20} /> LINEで相談する
                 </button>
               </div>
@@ -383,13 +381,13 @@ const App = () => {
 
       {/* フッター */}
       <footer className="py-20 bg-slate-900 text-slate-500 text-center px-4 border-t border-slate-800">
-        <div className="mb-12 flex justify-center items-center gap-4 text-center">
+        <div className="mb-12 flex justify-center items-center gap-4">
            <CalligraphyLogo className="scale-90" />
            <span className="text-2xl font-black text-slate-100 tracking-tighter italic">EGAO WORKS</span>
         </div>
-        <p className="text-sm mb-8 font-bold tracking-wide text-center text-center">© 2026 EGAO WORKS. All Smiles Reserved</p>
-        <div className="flex flex-wrap justify-center gap-10 text-[11px] md:text-sm font-black underline decoration-slate-700 underline-offset-8 text-center text-center">
-          <a href="#" className="hover:text-slate-300 transition-colors">個人情報保護方針</a>
+        <p className="text-sm mb-8 font-bold tracking-wide">© 2026 EGAO WORKS. All Smiles Reserved</p>
+        <div className="flex flex-wrap justify-center gap-10 text-[11px] md:text-sm font-black underline decoration-slate-700 underline-offset-8">
+          <a href="/" className="hover:text-slate-300 transition-colors">個人情報保護方針</a>
           <a href={uWordUrl} target="_blank" rel="noopener noreferrer" className="hover:text-slate-300 transition-colors">特定商取引法に基づく表記</a>
         </div>
       </footer>
